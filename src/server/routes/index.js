@@ -25,4 +25,10 @@ router.post(
   LoginSignUpController.login
 );
 
+router.post(
+  "/horario",
+  UsuarioController.cargahorariaValidation,
+  UsuarioController.cargahoraria
+);
+
 export { router };
