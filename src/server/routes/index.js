@@ -31,4 +31,16 @@ router.post(
   UsuarioController.cargahoraria
 );
 
+router.get(
+  "/horario",
+  UsuarioController.buscaDataValidation,
+  UsuarioController.buscaData
+);
+
+router.get(
+  "/calcular",
+  UsuarioController.CalcularValidation,
+  UsuarioController.calcularhora
+);
+
 export { router };

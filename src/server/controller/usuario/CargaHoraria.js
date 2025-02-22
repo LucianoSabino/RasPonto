@@ -6,7 +6,8 @@ import { UsuarioProvider } from "../../providers/usuario/index.js";
 export const cargahorariaValidation = validation((getSchema) => ({
   body: getSchema(
     yup.object().shape({
-      horas: yup.string().required(),
+      horas: yup.number().required(),
+      descricao: yup.string().required(),
       usuarioId: yup.number().required(),
     })
   ),

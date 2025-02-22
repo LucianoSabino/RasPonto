@@ -1,9 +1,9 @@
 import { Knex } from "../../database/Knex/index.js";
 
-export const busca = async (nome, matricula, curso) => {
+export const busca = async (nome, matricula, curso, id) => {
   try {
     // Log para verificar os parâmetros
-    console.log("Parâmetros recebidos:", { matricula, nome, curso });
+    console.log("Parâmetros recebidos:", { matricula, nome, curso, id });
 
     // Construção da query
     const query = Knex("usuarios").select("*");
@@ -19,6 +19,11 @@ export const busca = async (nome, matricula, curso) => {
     if (curso) {
       console.log("Adicionando filtro para curso:", curso);
       query.where("curso", curso);
+    }
+
+    if (id) {
+      console.log("Adicionando filtro para curso:", id);
+      query.where("id", id);
     }
 
     // Executando a query

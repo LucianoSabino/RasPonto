@@ -3,23 +3,23 @@ import * as yup from "yup";
 import { validation } from "../../shared/middlewares/Validation.js";
 import { UsuarioProvider } from "../../providers/usuario/index.js";
 
-export const buscaValidation = validation((getSchema) => ({
+export const buscaDataValidation = validation((getSchema) => ({
   query: getSchema(
     yup.object().shape({
-      nome: yup.string().optional(),
-      matricula: yup.string().optional(),
-      curso: yup.string().optional(),
-      id: yup.string().optional(),
+      dataInicio: yup.string().required(),
+      dataFim: yup.string().required(),
     })
   ),
 }));
 
-export const busca = async (req, res) => {
-  console.log(req.query);
-  const { nome, matricula, curso } = req.query;
+export const buscaData = async (req, res) => {
+  const { dataInicio, dataFim } = req.query;
 
   // Faz a busca no provider
-  const parametroBusca = await UsuarioProvider.busca(nome, matricula, curso);
+  const parametroBusca = await UsuarioProvider.buscaCargaHorariaData(
+    dataInicio,
+    dataFim
+  );
   console.log(parametroBusca);
 
   if (parametroBusca instanceof Error) {

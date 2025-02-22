@@ -26,7 +26,7 @@ export const login = async (req, res) => {
       result.senha
     );
 
-    console.log(VerificandoSenha);
+    console.log(result);
 
     if (!VerificandoSenha) {
       res.status(StatusCodes.UNAUTHORIZED).json({
