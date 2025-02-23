@@ -16,10 +16,15 @@ export const buscaValidation = validation((getSchema) => ({
 
 export const busca = async (req, res) => {
   console.log(req.query);
-  const { nome, matricula, curso } = req.query;
+  const { nome, matricula, curso, id } = req.query;
 
   // Faz a busca no provider
-  const parametroBusca = await UsuarioProvider.busca(nome, matricula, curso);
+  const parametroBusca = await UsuarioProvider.busca(
+    nome,
+    matricula,
+    curso,
+    id
+  );
   console.log(parametroBusca);
 
   if (parametroBusca instanceof Error) {

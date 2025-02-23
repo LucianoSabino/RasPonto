@@ -14,7 +14,7 @@ export const buscaDataValidation = validation((getSchema) => ({
 
 export const buscaData = async (req, res) => {
   const { dataInicio, dataFim } = req.query;
-
+  console.log(`Datas ${dataInicio} e ${dataFim}`);
   // Faz a busca no provider
   const parametroBusca = await UsuarioProvider.buscaCargaHorariaData(
     dataInicio,

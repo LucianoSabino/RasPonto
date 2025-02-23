@@ -7,6 +7,7 @@ export const cargahorariaValidation = validation((getSchema) => ({
   body: getSchema(
     yup.object().shape({
       horas: yup.number().required(),
+      horario: yup.string().required(),
       descricao: yup.string().required(),
       usuarioId: yup.number().required(),
     })

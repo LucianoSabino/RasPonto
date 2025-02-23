@@ -7,6 +7,7 @@ export const up = function (knex) {
   return knex.schema.createTable("cargahoraria", (table) => {
     table.increments("id").primary();
     table.integer("horas").notNullable();
+    table.string("horario").notNullable();
     table.string("descricao").notNullable();
     table
       .bigInteger("usuarioId")
