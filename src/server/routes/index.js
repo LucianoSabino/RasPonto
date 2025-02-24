@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { UsuarioController } from "../controller/usuario/index.js";
 import { LoginSignUpController } from "../controller/login/index.js";
+import { AdminController } from "../controller/admin/index.js";
 
 const router = Router();
 
@@ -52,6 +53,13 @@ router.get(
   "/buscainfo",
   UsuarioController.buscaInfoValidation,
   UsuarioController.buscainfo
+);
+
+// Busca detalhada da carga hoararia para o admin
+router.get(
+  "/admin_busca",
+  AdminController.buscaAdminValidation,
+  AdminController.buscaadmin
 );
 
 export { router };
