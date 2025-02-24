@@ -3,6 +3,7 @@ import * as busca from "./Busca.js";
 import * as cargahoraria from "./CargaHoraria.js";
 import * as somarhoras from "./CalcularCargaHoraria.js";
 import * as buscaCargaHorariaData from "./BuscaCargaHorariaData.js";
+import * as buscainfo from "./BuscaInfo.js";
 
 export const UsuarioProvider = {
   ...create,
@@ -10,4 +11,5 @@ export const UsuarioProvider = {
   ...cargahoraria,
   ...somarhoras,
   ...buscaCargaHorariaData,
+  ...buscainfo,
 };
