@@ -7,16 +7,22 @@ export const CalcularValidation = validation((getSchema) => ({
   query: getSchema(
     yup.object().shape({
       usuarioId: yup.number().required(),
+      dataInicio: yup.string().optional(),
+      dataFim: yup.string().optional(),
     })
   ),
 }));
 
 export const calcularhora = async (req, res) => {
   console.log(req.query);
-  const { usuarioId } = req.query;
+  const { usuarioId, dataInicio, dataFim } = req.query;
 
   // Faz a busca no provider
-  const calcular = await UsuarioProvider.somarHoras(usuarioId);
+  const calcular = await UsuarioProvider.somarHoras(
+    usuarioId,
+    dataInicio,
+    dataFim
+  );
   console.log(calcular);
 
   if (calcular instanceof Error) {
