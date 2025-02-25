@@ -4,6 +4,7 @@ import * as cargahoraria from "./CargaHoraria.js";
 import * as calcularhora from "./CalcularCargaHoraria.js";
 import * as buscaCargaHorariaData from "./BusacaCargaHorariaData.js";
 import * as buscainfo from "./BuscaInfo.js";
+import * as membresiaUp from "./UpMembresia.js";
 
 export const UsuarioController = {
   ...create,
@@ -12,4 +13,5 @@ export const UsuarioController = {
   ...calcularhora,
   ...buscaCargaHorariaData,
   ...buscainfo,
+  ...membresiaUp,
 };

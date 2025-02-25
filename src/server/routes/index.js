@@ -62,4 +62,17 @@ router.get(
   AdminController.buscaadmin
 );
 
+// Atualização membresia
+router.post(
+  "/upmembresia",
+  UsuarioController.upMembresiaValidation,
+  UsuarioController.membresiaUp
+);
+
+// Atualização role
+router.post(
+  "/admin_role",
+  AdminController.upRoleValidation,
+  AdminController.roleUp
+);
 export { router };

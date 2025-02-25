@@ -12,6 +12,8 @@ export const up = function (knex) {
     table.string("telefone").notNullable;
     table.string("email").unique().notNullable();
     table.string("senha").notNullable();
+    table.string("membresia").unique().notNullable();
+    table.string("role").notNullable();
     table.date("data").defaultTo(knex.raw("CURRENT_DATE")).notNullable();
   });
 };
