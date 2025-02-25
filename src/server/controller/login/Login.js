@@ -41,6 +41,7 @@ export const login = async (req, res) => {
       const accessToken = JWTService.sign({
         uid: result.id,
         nome: result.nome,
+        role: result.role,
       });
 
       if (accessToken === "JWT_SECRET_NOT_FOUND") {

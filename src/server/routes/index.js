@@ -6,7 +6,7 @@ import { AdminController } from "../controller/admin/index.js";
 const router = Router();
 
 router.get("/", (req, res) => {
-  res.send("Api foi");
+  res.send("API Ponto da RAS Rodando");
 });
 
 // Cria usuario
