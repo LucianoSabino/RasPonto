@@ -6,7 +6,16 @@ export const busca = async (nome, matricula, curso, id) => {
     console.log("Parâmetros recebidos:", { matricula, nome, curso, id });
 
     // Construção da query
-    const query = Knex("usuarios").select("*");
+    const query = Knex("usuarios").select(
+      "id",
+      "nome",
+      "matricula",
+      "curso",
+      "telefone",
+      "email",
+      "membresia",
+      "role"
+    );
 
     if (nome) {
       console.log("Adicionando filtro para nome:", nome);
