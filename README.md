@@ -26,7 +26,7 @@ Api que registra carga horaria do voluntarios da Ras.
 | POST   | `/upmembresia` | Atualiza informação de membresia do voluntario.            |
 | POST   | `/admin_role`  | Atualiza nivel de acesso do volutario                      |
 
-- Qual quer duvida [Detales rota](https://lucianosabino.github.io/rotaApiRas/)
+- Qual quer duvida [Detalhes rota](https://lucianosabino.github.io/rotaApiRas/)
 
 ### 🛠 Tecnologias BACK-END
 
