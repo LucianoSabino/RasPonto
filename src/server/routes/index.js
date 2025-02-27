@@ -2,6 +2,7 @@ import { Router } from "express";
 import { UsuarioController } from "../controller/usuario/index.js";
 import { LoginSignUpController } from "../controller/login/index.js";
 import { AdminController } from "../controller/admin/index.js";
+import { verificacaoAutenticacao } from "../shared/middlewares/Autenticacao.js";
 
 const router = Router();
 
@@ -12,6 +13,7 @@ router.get("/", (req, res) => {
 // Cria usuario
 router.post(
   "/usuario",
+  verificacaoAutenticacao,
   UsuarioController.createValidation,
   UsuarioController.createUp
 );
