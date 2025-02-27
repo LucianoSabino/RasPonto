@@ -75,4 +75,7 @@ router.post(
   AdminController.upRoleValidation,
   AdminController.roleUp
 );
+
+// Deletando usuario
+router.delete("/admin_delete/:id", AdminController.deleteusuario);
 export { router };
