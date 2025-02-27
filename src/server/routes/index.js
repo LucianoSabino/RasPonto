@@ -13,7 +13,6 @@ router.get("/", (req, res) => {
 // Cria usuario
 router.post(
   "/usuario",
-  verificacaoAutenticacao,
   UsuarioController.createValidation,
   UsuarioController.createUp
 );
