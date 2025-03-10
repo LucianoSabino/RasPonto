@@ -7,7 +7,7 @@ import { verificacaoAutenticacao } from "../shared/middlewares/Autenticacao.js";
 const router = Router();
 
 router.get("/", (req, res) => {
-  res.send("API Ponto da RAS Rodando.");
+  res.send("API Ponto da RAS Rodando. Tudo OK");
 });
 
 // Cria usuario
