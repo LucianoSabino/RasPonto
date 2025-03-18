@@ -1,0 +1,32 @@
+@baseUrl = https://ras-ponto-lsabino.vercel.app
+
+# Rota Base
+GET  {{baseUrl}}/
+
+
+### Lista todos os Usuario
+GET {{baseUrl}}/usuario?
+
+### Faz login
+POST  {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "matricula": 101010,
+  "senha": "123"
+}
+
+### Cria Usuario
+POST {{baseUrl}}/usuario
+Content-Type: application/json
+
+{
+  "nome": "admin",
+  "matricula": 101010,
+  "curso": "Ras",
+  "telefone": "777777",
+  "email": "admin@gmail.com",
+  "senha": "123",
+  "membresia": "101010/ON",
+  "role": "admin"
+}

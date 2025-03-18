@@ -57,6 +57,14 @@ const production = {
     port: Number(process.env.DATABASE_PORT) || 5432,
     ssl: { rejectUnauthorized: false }, // Certifique-se de que SSL está habilitado
     sslmode: "require", // Adicionando sslmode
+
+    //     Valores do sslmode:
+    // disable: Não usar SSL.
+    // allow: Usar SSL se o servidor oferecer suporte, mas não é obrigatório.
+    // prefer: Tenta usar SSL, mas se o servidor não oferecer suporte, a conexão não falha.
+    // require: Sempre usa SSL, mesmo que o servidor não ofereça suporte. Se o servidor não permitir SSL, a conexão falha.
+    // verify-ca: Usa SSL e verifica se o certificado do servidor é válido e foi emitido por uma autoridade certificadora confiável.
+    // verify-full: Usa SSL e, além de verificar o certificado, também garante que o nome do servidor no certificado corresponda ao nome do host.
   },
 };
 
