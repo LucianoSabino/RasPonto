@@ -7,6 +7,9 @@ GET  {{baseUrl}}/
 ### Lista todos os Usuario
 GET {{baseUrl}}/usuario?
 
+### Buscar Horario
+GET {{baseUrl}}/horario?dataInicio=2025-03-19&dataFim=2025-03-19
+
 ### Faz login
 POST  {{baseUrl}}/login
 Content-Type: application/json
@@ -30,3 +33,15 @@ Content-Type: application/json
   "membresia": "101010/ON",
   "role": "admin"
 }
+
+### Atualizar permisão de usuario. Aceita apenas "admin" ou "user"
+POST {{baseUrl}}/admin_role
+Content-Type: application/json
+
+{
+  "id": "id is a required field",
+  "role": "role is a required field"
+}
+
+### Deletar Usuario
+DELETE  {{baseUrl}}/admin_delete/6
