@@ -7,7 +7,7 @@ export const createValidation = validation((getSchema) => ({
   body: getSchema(
     yup.object().shape({
       nome: yup.string().required().min(3).max(255),
-      matricula: yup.number().required(),
+      matricula: yup.string().required().matches(/^\d+$/), // Garante que só aceita números como string
       curso: yup.string().required(),
       telefone: yup.string().required(),
       email: yup.string().required().email(),

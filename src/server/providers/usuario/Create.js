@@ -3,6 +3,7 @@ import { CriptografiaSenha } from "../../shared/services/CriptografiaSenha.js";
 
 export const create = async (data) => {
   try {
+    data.matricula = parseInt(data.matricula, 10); // Converte para número sem alterar os dígitos
     const senhaCriptografia = await CriptografiaSenha.gerandoSenha(data.senha);
     data.senha = senhaCriptografia;
     const [result] = await Knex("usuarios").insert(data).returning("id");
