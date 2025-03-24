@@ -12,9 +12,9 @@ export const create = async (data) => {
       return result;
     }
 
-    throw new Error("Erro ao cadastrar o registro"); // Corrigido o erro de digitação
+    throw new Error("Erro ao cadastrar o registro!!"); // Corrigido o erro de digitação
   } catch (error) {
     console.log(error);
-    return new Error("Erro ao cadastrar o registro"); // Corrigido para criar o erro corretamente
+    return new Error(`Erro ao cadastrar o registro ${error}`); // Corrigido para criar o erro corretamente
   }
 };
