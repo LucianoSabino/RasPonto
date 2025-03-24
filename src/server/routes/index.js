@@ -79,4 +79,9 @@ router.post(
 
 // Deletando usuario
 router.delete("/admin_delete/:id", AdminController.deleteusuario);
+
+// Deletar horario
+
+router.delete("/admin_delete_horario/:id", AdminController.deletehorario);
+
 export { router };
