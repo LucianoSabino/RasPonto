@@ -1,5 +1,5 @@
-# @baseUrl = https://ras-ponto-lsabino.vercel.app
-@baseUrl = http://localhost:8080
+@baseUrl = https://ras-ponto-lsabino.vercel.app
+# @baseUrl = http://localhost:8080
 
 # Link do projeto https://ieeeras-ufrb.github.io/Ponto-RAS/#/
 
