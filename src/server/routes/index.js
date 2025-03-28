@@ -64,11 +64,7 @@ router.get(
 );
 
 // Atualização membresia
-router.post(
-  "/upmembresia",
-  UsuarioController.upMembresiaValidation,
-  UsuarioController.membresiaUp
-);
+router.post("/upmembresia", UsuarioController.membresiaUp);
 
 // Atualização role
 router.post(
