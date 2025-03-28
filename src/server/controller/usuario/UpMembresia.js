@@ -6,26 +6,16 @@ import { UsuarioProvider } from "../../providers/usuario/index.js";
 export const upMembresiaValidation = validation((getSchema) => ({
   body: getSchema(
     yup.object().shape({
-      id: yup.number().required(),
-      nome: yup
-        .string()
-        .min(3)
-        .max(60)
-        .transform((value) => (value ? value.toUpperCase() : value)), // Transforma nome para maiúsculo
-      curso: yup
-        .string()
-        .transform((value) => (value ? value.toUpperCase() : value)), // Transforma curso para maiúsculo
+      nome: yup.string().min(3).max(60),
+      matricula: yup.string().min(10).max(10),
+      curso: yup.string(),
       telefone: yup.string(),
       email: yup.string().email(),
       senha: yup.string(),
       membresia: yup.string(),
-      robo: yup
-        .string()
-        .transform((value) => (value ? value.toUpperCase() : value)), // Transforma robo para maiúsculo
-      sobre: yup
-        .string()
-        .max(255)
-        .transform((value) => (value ? value.toUpperCase() : value)), // Transforma sobre para maiúsculo
+      role: yup.string(),
+      robo: yup.string(),
+      sobre: yup.string(),
     })
   ),
 }));
