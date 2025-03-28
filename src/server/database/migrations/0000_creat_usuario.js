@@ -7,9 +7,9 @@ export const up = function (knex) {
   return knex.schema.createTable("usuarios", (table) => {
     table.increments("id").primary();
     table.string("nome").notNullable();
-    table.float("matricula").notNullable();
+    table.string("matricula").notNullable().unique();
     table.string("curso").notNullable();
-    table.string("telefone").notNullable;
+    table.string("telefone").notNullable();
     table.string("email").unique().notNullable();
     table.string("senha").notNullable();
     table.string("membresia").notNullable();
