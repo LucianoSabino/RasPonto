@@ -14,7 +14,9 @@ export const busca = async (nome, matricula, curso, id) => {
       "telefone",
       "email",
       "membresia",
-      "role"
+      "role",
+      "robo",
+      "sobre"
     );
 
     if (nome) {
