@@ -1,5 +1,5 @@
-@baseUrl = https://ras-ponto-lsabino.vercel.app
-# @baseUrl = http://localhost:8080
+# @baseUrl = https://ras-ponto-lsabino.vercel.app
+@baseUrl = http://localhost:8080
 
 # Link do projeto https://ieeeras-ufrb.github.io/Ponto-RAS/#/
 
@@ -28,13 +28,22 @@ Content-Type: application/json
 
 {
   "nome": "AdminRas",
-  "matricula": "2022120193",
+  "matricula": "1010101910",
   "curso": "RAS",
   "telefone": "777777777",
-  "email": "adminras77@gmail.com",
+  "email": "adminras7@gmail.com",
   "senha": "123",
   "membresia": "101010/ON",
   "role": "admin"
+}
+
+###Atualização de usuario
+POST {{baseUrl}}/upmembresia
+Content-Type: application/json
+
+{
+  "id": 1,
+  "robo": "Medusa/Rio de Janeiro"
 }
 
 ### Atualizar permisão de usuario. Aceita apenas "admin" ou "user"
