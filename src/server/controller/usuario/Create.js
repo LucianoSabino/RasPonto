@@ -6,7 +6,7 @@ import { UsuarioProvider } from "../../providers/usuario/index.js";
 export const createValidation = validation((getSchema) => ({
   body: getSchema(
     yup.object().shape({
-      nome: yup.string().required().min(3).max(60),
+      nome: yup.string().required(),
       matricula: yup.string().required().min(10).max(10),
       curso: yup.string().required(),
       telefone: yup.string().required(),
