@@ -3,7 +3,7 @@ import * as yup from "yup";
 import { validation } from "../../shared/middlewares/Validation.js";
 import { UsuarioProvider } from "../../providers/usuario/index.js";
 
-export const upMembresiaValidation = validation((getSchema) => ({
+export const upDado = validation((getSchema) => ({
   body: getSchema(
     yup.object().shape({
       nome: yup.string().min(3).max(60),
@@ -20,7 +20,7 @@ export const upMembresiaValidation = validation((getSchema) => ({
   ),
 }));
 
-export const membresiaUp = async (req, res) => {
+export const dadosUp = async (req, res) => {
   const { id, nome, curso, telefone, email, senha, membresia, robo, sobre } =
     req.body;
   const nomeFormatado = nome ? nome.toUpperCase() : ""; // Prevenir erro se nome for undefined

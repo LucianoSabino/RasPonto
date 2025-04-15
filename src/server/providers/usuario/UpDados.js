@@ -33,43 +33,34 @@ export const updateMembresia = async (
   sobre
 ) => {
   try {
-    const query = Knex("usuarios").where("id", id);
+    const dadosAtualizar = {};
 
-    if (membresia !== undefined) {
-      query.update({ membresia });
-    }
-    if (nome !== undefined) {
-      query.update({ nome });
-    }
-    if (curso !== undefined) {
-      query.update({ curso });
-    }
-    if (telefone !== undefined) {
-      query.update({ telefone });
-    }
-    if (email !== undefined) {
-      query.update({ email });
-    }
-    if (senha !== undefined) {
-      query.update({ senha });
-    }
-    if (robo !== undefined) {
-      query.update({ robo });
-    }
-    if (sobre !== undefined) {
-      query.update({ sobre });
+    if (membresia !== undefined) dadosAtualizar.membresia = membresia;
+    if (nome !== undefined) dadosAtualizar.nome = nome;
+    if (curso !== undefined) dadosAtualizar.curso = curso;
+    if (telefone !== undefined) dadosAtualizar.telefone = telefone;
+    if (email !== undefined) dadosAtualizar.email = email;
+    if (senha !== undefined) dadosAtualizar.senha = senha;
+    if (robo !== undefined) dadosAtualizar.robo = robo;
+    if (sobre !== undefined) dadosAtualizar.sobre = sobre;
+
+    if (Object.keys(dadosAtualizar).length === 0) {
+      throw new Error("Nenhum campo enviado para atualização.");
     }
 
-    // Executa a atualização
-    const updated = await query;
+    const updated = await Knex("usuarios")
+      .where("id", id)
+      .update(dadosAtualizar);
 
     if (updated === 0) {
-      throw new Error("Nenhuma atualização realizada. Verifique os dados.");
+      throw new Error(
+        `Nenhuma atualização realizada. Usuário ID ${id} não encontrado.`
+      );
     }
 
-    return updated;
+    return { success: true, message: "Usuário atualizado com sucesso." };
   } catch (error) {
-    console.error("Erro ao atualizar a membresia:", error);
+    console.error("Erro ao atualizar usuário:", error);
     throw error;
   }
 };
