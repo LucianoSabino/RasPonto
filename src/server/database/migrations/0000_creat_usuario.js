@@ -14,8 +14,6 @@ export const up = function (knex) {
     table.string("senha").notNullable();
     table.string("membresia").notNullable();
     table.string("role").notNullable();
-    table.string("robo").notNullable();
-    table.string("sobre").notNullable();
     table.date("data").defaultTo(knex.raw("CURRENT_DATE")).notNullable();
   });
 };

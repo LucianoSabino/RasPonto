@@ -21,8 +21,6 @@ export const createValidation = validation((getSchema) => ({
 export const createUp = async (req, res) => {
   const { nome, matricula, curso, telefone, email, senha, membresia, role } =
     req.body;
-  const robo = "NÃO INFORMADO!";
-  const sobre = "NÃO INFORMADO!";
   const data = {
     nome: nome ? nome.toUpperCase() : "", // Converte nome para caixa alta
     matricula,
@@ -32,8 +30,6 @@ export const createUp = async (req, res) => {
     senha,
     membresia,
     role,
-    robo: robo ? robo.toUpperCase() : "",
-    sobre: sobre ? sobre.toUpperCase() : "",
   };
   const result = await UsuarioProvider.create(data);
   console.log(result);

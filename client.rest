@@ -27,35 +27,24 @@ POST {{baseUrl}}/usuario
 Content-Type: application/json
 
 {
-  "nome": "Gustavo Santos Oliveira Abbas",
-  "matricula": "2020207040",
-  "curso": "BCET",
-  "telefone": " (77)981023740",
-  "email": "gustavoabbas@aluno.ufrb.edu.br",
-  "senha": "2020207040",
+  "nome": "Admin",
+  "matricula": "1010108963",
+  "curso": "RAS",
+  "telefone": "1010101010",
+  "email": "adminras2@gmail.com",
+  "senha": "123",
   "membresia": "101010/ON",
-  "role": "user"
+  "role": "admin"
 }
 
-
-# {
-#   "nome": "Admin",
-#   "matricula": "1010101010",
-#   "curso": "RAS",
-#   "telefone": "1010101010",
-#   "email": "adminras@gmail.com",
-#   "senha": "123",
-#   "membresia": "101010/ON",
-#   "role": "admin"
-# }
-
 ###Atualização de usuario
-POST {{baseUrl}}/upmembresia
+POST {{baseUrl}}/dadosAtualizar
 Content-Type: application/json
 
 {
-  "id": 1,
-  "robo": "Medusa/Rio de Janeiro"
+  "id": 21,
+  "nome": "Gabriel Salemo",
+  "membresia": "1235897"
 }
 
 ### Atualizar permisão de usuario. Aceita apenas "admin" ou "user"
