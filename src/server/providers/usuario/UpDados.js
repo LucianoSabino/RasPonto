@@ -28,9 +28,7 @@ export const updateMembresia = async (
   telefone,
   email,
   senha,
-  membresia,
-  robo,
-  sobre
+  membresia
 ) => {
   try {
     const dadosAtualizar = {};
@@ -41,8 +39,6 @@ export const updateMembresia = async (
     if (telefone !== undefined) dadosAtualizar.telefone = telefone;
     if (email !== undefined) dadosAtualizar.email = email;
     if (senha !== undefined) dadosAtualizar.senha = senha;
-    if (robo !== undefined) dadosAtualizar.robo = robo;
-    if (sobre !== undefined) dadosAtualizar.sobre = sobre;
 
     if (Object.keys(dadosAtualizar).length === 0) {
       throw new Error("Nenhum campo enviado para atualização.");

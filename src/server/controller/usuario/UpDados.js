@@ -14,19 +14,14 @@ export const upDado = validation((getSchema) => ({
       senha: yup.string(),
       membresia: yup.string(),
       role: yup.string(),
-      robo: yup.string(),
-      sobre: yup.string(),
     })
   ),
 }));
 
 export const dadosUp = async (req, res) => {
-  const { id, nome, curso, telefone, email, senha, membresia, robo, sobre } =
-    req.body;
+  const { id, nome, curso, telefone, email, senha, membresia } = req.body;
   const nomeFormatado = nome ? nome.toUpperCase() : ""; // Prevenir erro se nome for undefined
   const cursoFormatado = curso ? curso.toUpperCase() : "";
-  const roboFormatado = robo ? robo.toUpperCase() : "";
-  const sobreFormatado = sobre ? sobre.toUpperCase() : "";
 
   const result = await UsuarioProvider.updateMembresia(
     id,
@@ -35,9 +30,7 @@ export const dadosUp = async (req, res) => {
     telefone,
     email,
     senha,
-    membresia,
-    roboFormatado,
-    sobreFormatado
+    membresia
   );
 
   if (result instanceof Error) {
