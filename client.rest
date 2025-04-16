@@ -19,6 +19,7 @@ Content-Type: application/json
 
 {
   "matricula": "2022120190",
+
   "senha": "123"
 }
 
@@ -43,7 +44,9 @@ Content-Type: application/json
 
 {
   "id": 17,
-  "senha": "123456"
+  "nome": "Luciano Sabino",
+  "senha": "123456",
+  "curso": "BCET"
 }
 
 ### Atualizar permisão de usuario. Aceita apenas "admin" ou "user"

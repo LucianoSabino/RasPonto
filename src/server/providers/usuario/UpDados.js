@@ -63,20 +63,20 @@ import { Knex } from "../../database/Knex/index.js";
 // };
 
 /**
- * Atualiza os campos informados de um usuário com base no ID.
- * Campos com valor null ou string vazia serão ignorados.
+ * Atualiza apenas os campos enviados de um usuário com base no ID.
+ * Ignora campos que sejam undefined, null ou string vazia.
  *
  * @param {number} id - ID do usuário a ser atualizado
- * @param {object} campos - Objeto com os campos opcionais a serem atualizados
- * Exemplo: { nome: "João", senha: "123456" }
+ * @param {object} campos - Campos a serem atualizados (parciais)
+ * Ex: { senha: "novaSenha123" }
  */
 export const updateMembresia = async (id, campos) => {
   try {
     const dadosAtualizar = {};
 
-    // Ignora campos com null ou string vazia
+    // Filtra somente os campos válidos (não null, não undefined, não string vazia)
     for (const [chave, valor] of Object.entries(campos)) {
-      if (valor != null && valor !== "") {
+      if (valor !== undefined && valor !== null && valor !== "") {
         dadosAtualizar[chave] = valor;
       }
     }
@@ -90,9 +90,7 @@ export const updateMembresia = async (id, campos) => {
       .update(dadosAtualizar);
 
     if (updated === 0) {
-      throw new Error(
-        `Nenhuma atualização realizada. Usuário ID ${id} não encontrado.`
-      );
+      throw new Error(`Usuário com ID ${id} não encontrado.`);
     }
 
     return { success: true, message: "Usuário atualizado com sucesso." };
