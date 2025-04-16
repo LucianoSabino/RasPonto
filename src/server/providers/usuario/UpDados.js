@@ -21,27 +21,68 @@ import { Knex } from "../../database/Knex/index.js";
 //   }
 // };
 
-export const updateMembresia = async (
-  id,
-  nome,
-  curso,
-  telefone,
-  email,
-  senha,
-  membresia
-) => {
+// export const updateMembresia = async (
+//   id,
+//   nome,
+//   curso,
+//   telefone,
+//   email,
+//   senha,
+//   membresia
+// ) => {
+//   try {
+//     const dadosAtualizar = {};
+
+//     if (nome != null && nome !== "") dadosAtualizar.nome = nome;
+//     if (curso != null && curso !== "") dadosAtualizar.curso = curso;
+//     if (telefone != null && telefone !== "") dadosAtualizar.telefone = telefone;
+//     if (email != null && email !== "") dadosAtualizar.email = email;
+//     if (senha != null && senha !== "") dadosAtualizar.senha = senha;
+//     if (membresia != null && membresia !== "")
+//       dadosAtualizar.membresia = membresia;
+
+//     if (Object.keys(dadosAtualizar).length === 0) {
+//       throw new Error("Nenhum campo enviado para atualização.");
+//     }
+
+//     const updated = await Knex("usuarios")
+//       .where("id", id)
+//       .update(dadosAtualizar);
+
+//     if (updated === 0) {
+//       throw new Error(
+//         `Nenhuma atualização realizada. Usuário ID ${id} não encontrado.`
+//       );
+//     }
+
+//     return { success: true, message: "Usuário atualizado com sucesso." };
+//   } catch (error) {
+//     console.error("Erro ao atualizar usuário:", error);
+//     throw error;
+//   }
+// };
+
+/**
+ * Atualiza os campos informados de um usuário com base no ID.
+ * Campos com valor null ou string vazia serão ignorados.
+ *
+ * @param {number} id - ID do usuário a ser atualizado
+ * @param {object} campos - Objeto com os campos opcionais a serem atualizados
+ * Exemplo: { nome: "João", senha: "123456" }
+ */
+export const updateMembresia = async (id, campos) => {
   try {
     const dadosAtualizar = {};
 
-    if (membresia !== undefined) dadosAtualizar.membresia = membresia;
-    if (nome !== undefined) dadosAtualizar.nome = nome;
-    if (curso !== undefined) dadosAtualizar.curso = curso;
-    if (telefone !== undefined) dadosAtualizar.telefone = telefone;
-    if (email !== undefined) dadosAtualizar.email = email;
-    if (senha !== undefined) dadosAtualizar.senha = senha;
+    // Ignora campos com null ou string vazia
+    for (const [chave, valor] of Object.entries(campos)) {
+      if (valor != null && valor !== "") {
+        dadosAtualizar[chave] = valor;
+      }
+    }
 
     if (Object.keys(dadosAtualizar).length === 0) {
-      throw new Error("Nenhum campo enviado para atualização.");
+      throw new Error("Nenhum campo válido enviado para atualização.");
     }
 
     const updated = await Knex("usuarios")

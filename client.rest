@@ -42,9 +42,8 @@ POST {{baseUrl}}/dadosAtualizar
 Content-Type: application/json
 
 {
-  "id": 21,
-  "nome": "Gabriel Salemo",
-  "membresia": "1235897"
+  "id": 17,
+  "senha": "123456"
 }
 
 ### Atualizar permisão de usuario. Aceita apenas "admin" ou "user"
