@@ -1,4 +1,5 @@
 import { Knex } from "../../database/Knex/index.js";
+import { CriptografiaSenha } from "../../shared/services/CriptografiaSenha.js";
 
 // export const updateMembresia = async (id, membresia) => {
 //   try {
@@ -37,9 +38,15 @@ export const updateMembresia = async (
     if (curso != null && curso !== "") dadosAtualizar.curso = curso;
     if (telefone != null && telefone !== "") dadosAtualizar.telefone = telefone;
     if (email != null && email !== "") dadosAtualizar.email = email;
-    if (senha != null && senha !== "") dadosAtualizar.senha = senha;
     if (membresia != null && membresia !== "")
       dadosAtualizar.membresia = membresia;
+
+    if (senha != null && senha !== "") {
+      const senhaCriptografia = await CriptografiaSenha.gerandoSenha(
+        senha.senha
+      );
+      dadosAtualizar.senha = senhaCriptografia;
+    }
 
     if (Object.keys(dadosAtualizar).length === 0) {
       throw new Error("Nenhum campo enviado para atualização.");
