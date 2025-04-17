@@ -20,13 +20,11 @@ export const upDado = validation((getSchema) => ({
 
 export const dadosUp = async (req, res) => {
   const { id, nome, curso, telefone, email, senha, membresia } = req.body;
-  const nomeFormatado = nome ? nome.toUpperCase() : ""; // Prevenir erro se nome for undefined
-  const cursoFormatado = curso ? curso.toUpperCase() : "";
 
   const result = await UsuarioProvider.updateMembresia(
     id,
-    nomeFormatado,
-    cursoFormatado,
+    nome,
+    curso,
     telefone,
     email,
     senha,
