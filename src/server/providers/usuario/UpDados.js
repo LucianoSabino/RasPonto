@@ -42,9 +42,7 @@ export const updateMembresia = async (
       dadosAtualizar.membresia = membresia;
 
     if (senha != null && senha !== "") {
-      const senhaCriptografia = await CriptografiaSenha.gerandoSenha(
-        senha.senha
-      );
+      const senhaCriptografia = await CriptografiaSenha.gerandoSenha(senha);
       dadosAtualizar.senha = senhaCriptografia;
     }
 
